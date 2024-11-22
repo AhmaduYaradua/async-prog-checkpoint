@@ -1,5 +1,5 @@
 // ---------------------------------------------- \\
-
+// Task 1
 async function iterateWithAsyncWait() {
   const myArray = ["one", "two", "three", "four", "five"];
 
@@ -12,28 +12,7 @@ async function iterateWithAsyncWait() {
 iterateWithAsyncWait();
 
 // ---------------------------------------------- \\
-
-async function parallelCalls(urls) {
-  try {
-    const responses = await Promise.all(
-      urls.map((url) => fetch(url).then((response) => response.json()))
-    );
-
-    console.log("Responses:", responses);
-  } catch (error) {
-    console.error("Error fetching data:", error);
-  }
-}
-const urls = [
-  "https://jsonplaceholder.typicode.com/users",
-  "https://jsonplaceholder.typicode.com/users/1",
-  "https://jsonplaceholder.typicode.com/users/2",
-];
-
-parallelCalls(urls);
-
-// ---------------------------------------------- \\
-
+// Task 2
 async function awaitCall() {
   const url = "https://jsonplaceholder.typicode.com/users";
 
@@ -53,3 +32,24 @@ async function awaitCall() {
   }
 }
 awaitCall();
+
+// ---------------------------------------------- \\
+// Task 5
+async function parallelCalls(urls) {
+  try {
+    const responses = await Promise.all(
+      urls.map((url) => fetch(url).then((response) => response.json()))
+    );
+
+    console.log("Responses:", responses);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
+}
+const urls = [
+  "https://jsonplaceholder.typicode.com/users",
+  "https://jsonplaceholder.typicode.com/users/1",
+  "https://jsonplaceholder.typicode.com/users/2",
+];
+
+parallelCalls(urls);
